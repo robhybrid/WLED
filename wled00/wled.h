@@ -24,9 +24,14 @@
 //#define WLED_DISABLE_OTA         // saves 14kb
 
 // You can choose some of these features to disable:
-//#define WLED_DISABLE_ALEXA       // saves 11kb
-//#define WLED_DISABLE_HUESYNC     // saves 4kb
-//#define WLED_DISABLE_INFRARED    // saves 12kb, there is no pin left for this on ESP8266-01
+#define WLED_DISABLE_ALEXA       // saves 11kb
+#define WLED_DISABLE_HUESYNC     // saves 4kb
+#define WLED_DISABLE_INFRARED    // saves 12kb, there is no pin left for this on ESP8266-01
+#define WLED_DISABLE_MQTT
+#define WLED_DISABLE_ADALIGHT
+#define WLED_DISABLE_LOXONE
+#define WLED_DISABLE_WEBSOCKETS
+
 #ifndef WLED_DISABLE_MQTT
   #define WLED_ENABLE_MQTT         // saves 12kb
 #endif
@@ -35,8 +40,10 @@
 #else
   #undef WLED_ENABLE_ADALIGHT      // disable has priority over enable
 #endif
+
 #define WLED_ENABLE_DMX          // uses 3.5kb (use LEDPIN other than 2)
-#define WLED_ENABLE_JSONLIVE     // peek LED output via /json/live (WS binary peek is always enabled)
+
+// #define WLED_ENABLE_JSONLIVE     // peek LED output via /json/live (WS binary peek is always enabled)
 #ifndef WLED_DISABLE_LOXONE
   #define WLED_ENABLE_LOXONE       // uses 1.2kb
 #endif
@@ -45,8 +52,7 @@
 #endif
 
 //#define WLED_DISABLE_ESPNOW      // Removes dependence on esp now 
-
-#define WLED_ENABLE_FS_EDITOR      // enable /edit page for editing FS content. Will also be disabled with OTA lock
+// #define WLED_ENABLE_FS_EDITOR      // enable /edit page for editing FS content. Will also be disabled with OTA lock
 
 // to toggle usb serial debug (un)comment the following line
 //#define WLED_DEBUG
